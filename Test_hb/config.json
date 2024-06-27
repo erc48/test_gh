@@ -1,0 +1,32 @@
+{
+    "files": [
+      {
+        "source": "test_wf_1.yaml",
+        "repos": ["ci_scripts", "ci_tests"]
+      },
+      {
+        "source": "test_wf_2.yaml",
+        "repos": ["ci_cd_midu"]
+      },
+      {
+        "source": "test_wf_3.yaml",
+        "repos": ["ci_scripts", "ci_tests", "ci_cd_midu"]
+      }
+    ],
+    "rulesets": [
+      {
+        "name": "main-branch-protection",
+        "active": true,
+        "repos": {
+          "ci_scripts": ["main", "support/**"],
+          "ci_tests": ["main"],
+          "ci_cd_midu": ["main"]
+        },
+        "require_status_checks": {
+          "required": true,
+          "checks": ["test"]
+        }
+      }
+    ]
+  }
+  
